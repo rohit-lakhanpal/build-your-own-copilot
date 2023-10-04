@@ -1,4 +1,4 @@
-# Professional Financial Services Example
+# Prompt Template
 
 ...
 
