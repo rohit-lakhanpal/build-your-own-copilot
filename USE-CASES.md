@@ -43,7 +43,7 @@
 
 | Id    | Industry       | Overview                                                         | Samples                                      |
 |-------|----------------|------------------------------------------------------------------|----------------------------------------------|
-| 1     | Healthcare     | "Add wow" | Hack Prompt <br /> POC Notebook <br /> MLP Code |
+| 1     | Healthcare     | With less time spent on admin, more time can be spent attending to a patient’s complex needs or seeing more patients. | **Hack** <br /> - [Healthcare Prompts](./prompts/healthcare/1-healthcare.md) <br /><br /> **POC** <br /> - [Python Notebook](./notebooks/python/healthcare/1-healthcare.ipynb) <br /> <br /> **MLP** <br /> *None yet.* |
 
 ## Common use-cases for LLMs:
 | Use Case                                   | Description                                                                                                                                                             |
