@@ -39,12 +39,6 @@
   </p>
 </div>
 
-1. Clone the repo
-2. Create Cloud Resources
-3. Get .net versions
-4. Get vscode 
-5. vscode extnesions
-
 ## 1. Clone the repo
 
 1. Clone the repo
@@ -294,17 +288,14 @@ Here are the documentation and resources for installing the local tools you requ
 #### 3.1. **VS Code Installation**:
    - **[Official Documentation](https://code.visualstudio.com/docs)**: Provides an overview, setup instructions, and introductory videos for getting started with VS Code.
    - **[Download Page](https://code.visualstudio.com/Download)**: You can download VS Code for Linux, macOS, or Windows from this page.
-   - **[Digital Ocean Tutorial](https://www.digitalocean.com/community/tutorial_series/how-to-install-and-set-up-visual-studio-code-on-ubuntu-20-04)**: This tutorial walks through the steps to install and setup VS Code on Ubuntu, including installing the Visual Studio Code Command Line Interface.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
 
 #### 3.2. **Extensions for Polyglot Notebooks**:
-   - **[Polyglot Programming with Notebooks](https://code.visualstudio.com/docs/datascience/notebooks)**: Describes the Polyglot Notebooks extension which allows multiple programming languages to be used natively in the same notebook in VS Code【58†source】.
-   - **[Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MS-dotnettools.dotnet-interactive-vscode)**: The marketplace page where you can install the Polyglot Notebooks extension and provides a brief getting started guide【59†source】.
-   - **[DEV Community Guide](https://dev.to/azure/net-notebooks-are-finally-here-and-its-awesome-26b5)**: Provides a step-by-step guide on installing VS Code extensions for Polyglot Notebooks, including Jupyter and SandDance for VSCode【60†source】.
-   - **[Practicing Algorithms using Polyglot Notebooks](https://dev.to/azure/net-notebooks-are-finally-here-and-its-awesome-26b5)**: Describes how to install, configure, and troubleshoot Polyglot Notebooks for practicing algorithms【61†source】.
+   - **[Polyglot Programming with Notebooks](https://marketplace.visualstudio.com/items?itemName=MS-dotnettools.dotnet-interactive-vscode)**: Describes the Polyglot Notebooks extension which allows multiple programming languages to be used natively in the same notebook in VS Code.
+   - **[Install the Polyglot Notebooks extension](https://marketplace.visualstudio.com/items?itemName=MS-dotnettools.dotnet-interactive-vscode)**: Polyglot Notebooks for VS Code. Use multiple languages in one notebook with full language server support for each language and share variables between them.
 
 These resources should provide a comprehensive guide to installing VS Code and setting up extensions for polyglot notebooks.
 
