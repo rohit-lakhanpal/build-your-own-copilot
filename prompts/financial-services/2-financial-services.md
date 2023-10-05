@@ -3,6 +3,8 @@
 The professional services industry is a highly educated workforce with relatively low levels of productivity. This makes the industry a prime candidate for GAI transformation. As GAI automates routine and well defined tasks, the highly skilled workforce can spend more time on higher value thinking. With GAI, Australia could build on its reputation for high calibre knowledge workers, particularly in financial and legal 
 sectors.
 
+![Sector deep-dive: Professional and Financial Services](/docs/img/professional-and-financial-services.png "Sector deep-dive: Professional and Financial Services ")
+
 
 References: 
 - [Australia’s Generative AI opportunity Research paper | TechCouncil of Australia](https://techcouncil.com.au/wp-content/uploads/2023/07/230714-Australias-Gen-AI-Opportunity-Final-report-vF4.pdf).
