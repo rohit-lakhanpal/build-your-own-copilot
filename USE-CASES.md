@@ -28,14 +28,15 @@
     powered by
     <br />
     <a href="https://github.com/rohit-lakhanpal/build-your-own-copilot">
-    <img src="docs/img/logo.png" alt="Logo" height="80">
-  </a>
+      <img src="docs/img/logo.png" alt="Logo" height="80">
+    </a>
     <br />    
     <a href="/README.md">Introduction</a>
-    ·
+    →
     <a href="/GETTING-STARTED.md">Getting Started</a>
-    ·
-    <a href="/USE-CASES.md"><strong>Use Cases</strong></a>
+    →
+    [ <a href="/USE-CASES.md"><u>Use Cases</u></a> ]
+
   </p>
 </div>
 

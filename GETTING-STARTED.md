@@ -32,9 +32,9 @@
   </a>
     <br />    
     <a href="/README.md">Introduction</a>
-    ·
-    <a href="/GETTING-STARTED.md"><strong>Getting Started</strong></a>    
-    ·
+    →
+    [ <a href="/GETTING-STARTED.md"><u>Getting Started</u></a> ]
+    →
     <a href="/USE-CASES.md">Use Cases</a>
   </p>
 </div>
