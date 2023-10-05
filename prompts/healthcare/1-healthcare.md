@@ -1,12 +1,11 @@
 # Healthcare Example
 
-GAI has significant potential to improve the accessibility and quality of 
-healthcare delivery. It can enable more one on one patient care by 
-reducing time spent on admin, improving personalisation by being 
-embedded in wearable devices, and supporting the transition towards 
-more proactive models of healthcare by allowing earlier diagnosis, at 
-scale. Importantly, the key to realising these benefits will be robust 
+GAI has significant potential to improve the accessibility and quality of healthcare delivery. It can enable more one on one patient care by 
+reducing time spent on admin, improving personalisation by being embedded in wearable devices, and supporting the transition towards 
+more proactive models of healthcare by allowing earlier diagnosis, at scale. Importantly, the key to realising these benefits will be robust 
 protocols that ensure patient confidentiality and safety are maintained.
+
+![Sector deep-dive: Helathcare](/docs/img/healthcare.png "Sector deep-dive: Healthcare")
 
 References: [Australia’s Generative AI opportunity Research paper | TechCouncil of Australia](https://techcouncil.com.au/wp-content/uploads/2023/07/230714-Australias-Gen-AI-Opportunity-Final-report-vF4.pdf).
 
