@@ -85,12 +85,12 @@ public static class Setup
             // )
 
             // Use Azure OpenAI for Semantic Functions (model = gpt-35-turbo-instruct)
-            .WithAzureTextCompletionService(
-                deploymentName: Configuration.GenerativeAI.Azure.CompletionDeploymentName,
-                endpoint: Configuration.GenerativeAI.Azure.Endpoint,
-                apiKey: Configuration.GenerativeAI.Azure.ApiKey,
-                setAsDefault: Configuration.GenerativeAI.DefaultProviders.CompletionService.Equals("Azure", StringComparison.OrdinalIgnoreCase)
-            )
+            // .WithAzureTextCompletionService(
+            //     deploymentName: Configuration.GenerativeAI.Azure.CompletionDeploymentName,
+            //     endpoint: Configuration.GenerativeAI.Azure.Endpoint,
+            //     apiKey: Configuration.GenerativeAI.Azure.ApiKey,
+            //     setAsDefault: Configuration.GenerativeAI.DefaultProviders.CompletionService.Equals("Azure", StringComparison.OrdinalIgnoreCase)
+            // )
 
             // Use OpenAI for Semantic Functions (model = gpt-3.5-turbo-instruct-0914)
             // .WithOpenAITextCompletionService(
@@ -102,9 +102,7 @@ public static class Setup
             
             .WithRetryBasic(new BasicRetryConfig{
                 UseExponentialBackoff = true,
-                MaxRetryCount = 1,
-                MinRetryDelay = System.TimeSpan.FromSeconds(1),
-                MaxTotalRetryTime = System.TimeSpan.FromSeconds(5)
+                MaxRetryCount = 3
             })  
 
         .Build();
@@ -155,7 +153,7 @@ public static class Setup
             throw new InvalidOperationException("Azure Search Admin Key is not set in settings.json");
 
         // Validate DefaultProviders
-        ValidateDefaultProvider(configuration, "CompletionService");
+        //ValidateDefaultProvider(configuration, "CompletionService");
         ValidateDefaultProvider(configuration, "ChatService");
         ValidateDefaultProvider(configuration, "EmbeddingService");        
     }
