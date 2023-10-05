@@ -16,25 +16,28 @@ using Microsoft.Extensions.Logging;
 
 public static class Setup
 {
-    public static AIConfiguration Configuration { get; private set; }    
+    public static AIConfiguration Configuration { get; private set; }   
 
     static Setup()
     {
-        string settingsFilePath = "../config/settings.json";
+        // string settingsFilePath = "../config/settings.json";
 
-        if (!File.Exists(settingsFilePath))
-            throw new FileNotFoundException("Settings file not found", settingsFilePath);
+        // if (!File.Exists(settingsFilePath))
+        //     throw new FileNotFoundException("Settings file not found", settingsFilePath);
 
-        var settingsJson = File.ReadAllText(settingsFilePath);
+        // var settingsJson = File.ReadAllText(settingsFilePath);
 
-        var jObject = JObject.Parse(settingsJson);
-        var aiConfiguration = jObject.SelectToken("AIConfiguration");
+        // var jObject = JObject.Parse(settingsJson);
+        // var aiConfiguration = jObject.SelectToken("AIConfiguration");
+        
 
-        if (aiConfiguration == null)
-            throw new InvalidOperationException("AIConfiguration not found in settings.json");
+        // if (aiConfiguration == null)
+        //     throw new InvalidOperationException("AIConfiguration not found in settings.json");
 
-        Configuration = aiConfiguration.ToObject<AIConfiguration>();
+        // Configuration = aiConfiguration.ToObject<AIConfiguration>();
 
+        
+        Configuration = GetConfiguration();
         ValidateConfiguration(Configuration);        
     }
 
@@ -57,12 +60,12 @@ public static class Setup
             )
             
             // Use OpenAI for Embeddings (model: text-embedding-ada-002)
-            .WithOpenAITextEmbeddingGenerationService(
-                modelId: Configuration.GenerativeAI.OpenAI.EmbeddingModelName,
-                apiKey: Configuration.GenerativeAI.OpenAI.ApiKey,
-                orgId: Configuration.GenerativeAI.OpenAI.OrganizationId,
-                setAsDefault: Configuration.GenerativeAI.DefaultProviders.EmbeddingService.Equals("OpenAI", StringComparison.OrdinalIgnoreCase)    
-            )
+            // .WithOpenAITextEmbeddingGenerationService(
+            //     modelId: Configuration.GenerativeAI.OpenAI.EmbeddingModelName,
+            //     apiKey: Configuration.GenerativeAI.OpenAI.ApiKey,
+            //     orgId: Configuration.GenerativeAI.OpenAI.OrganizationId,
+            //     setAsDefault: Configuration.GenerativeAI.DefaultProviders.EmbeddingService.Equals("OpenAI", StringComparison.OrdinalIgnoreCase)    
+            // )
 
             // Use Azure OpenAI for Semantic Functions (model = gpt-35-turbo-16k)
             .WithAzureChatCompletionService(
@@ -74,12 +77,12 @@ public static class Setup
             )
 
             // Use OpenAI for Semantic Functions (model = gpt-4-0613)
-            .WithOpenAIChatCompletionService(
-                modelId: Configuration.GenerativeAI.OpenAI.ChatModelName,
-                apiKey: Configuration.GenerativeAI.OpenAI.ApiKey,
-                orgId: Configuration.GenerativeAI.OpenAI.OrganizationId,
-                setAsDefault: Configuration.GenerativeAI.DefaultProviders.ChatService.Equals("OpenAI", StringComparison.OrdinalIgnoreCase)
-            )
+            // .WithOpenAIChatCompletionService(
+            //     modelId: Configuration.GenerativeAI.OpenAI.ChatModelName,
+            //     apiKey: Configuration.GenerativeAI.OpenAI.ApiKey,
+            //     orgId: Configuration.GenerativeAI.OpenAI.OrganizationId,
+            //     setAsDefault: Configuration.GenerativeAI.DefaultProviders.ChatService.Equals("OpenAI", StringComparison.OrdinalIgnoreCase)
+            // )
 
             // Use Azure OpenAI for Semantic Functions (model = gpt-35-turbo-instruct)
             .WithAzureTextCompletionService(
@@ -90,12 +93,12 @@ public static class Setup
             )
 
             // Use OpenAI for Semantic Functions (model = gpt-3.5-turbo-instruct-0914)
-            .WithOpenAITextCompletionService(
-                modelId: Configuration.GenerativeAI.OpenAI.CompletionModelName,
-                apiKey: Configuration.GenerativeAI.OpenAI.ApiKey,
-                orgId: Configuration.GenerativeAI.OpenAI.OrganizationId,
-                setAsDefault: Configuration.GenerativeAI.DefaultProviders.CompletionService.Equals("OpenAI", StringComparison.OrdinalIgnoreCase)
-            )
+            // .WithOpenAITextCompletionService(
+            //     modelId: Configuration.GenerativeAI.OpenAI.CompletionModelName,
+            //     apiKey: Configuration.GenerativeAI.OpenAI.ApiKey,
+            //     orgId: Configuration.GenerativeAI.OpenAI.OrganizationId,
+            //     setAsDefault: Configuration.GenerativeAI.DefaultProviders.CompletionService.Equals("OpenAI", StringComparison.OrdinalIgnoreCase)
+            // )
             
             .WithRetryBasic(new BasicRetryConfig{
                 UseExponentialBackoff = true,
@@ -121,7 +124,19 @@ public static class Setup
         return kernel;
     }
 
-    
+
+    private static AIConfiguration GetConfiguration()
+    {
+        var cb1 = new Microsoft.Extensions.Configuration.ConfigurationBuilder();
+        var cb2 =  Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath(cb1, Path.Combine(Directory.GetCurrentDirectory(), "../config"));
+        var cb3 = Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile(cb2, "settings.json", true);
+        var cb4 = Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables(cb3);
+        var configuration = cb4.Build();
+        var aiConfiguration = new AIConfiguration();
+        var section = configuration.GetSection("AIConfiguration");        
+        Microsoft.Extensions.Configuration.ConfigurationBinder.Bind(section, aiConfiguration);
+        return aiConfiguration;
+    }    
 
     private static void ValidateConfiguration(AIConfiguration configuration)
     {
@@ -206,6 +221,7 @@ public static class Setup
     }
 
 }
+
 
 public class AIConfiguration
 {

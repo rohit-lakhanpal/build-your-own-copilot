@@ -67,10 +67,23 @@ Click this button to deploy an `Azure Cognitive Search` service:
 - After deploying, navigate to the **Azure Cognitive Search** resource within the Azure Portal.
 - In the left pane, select **Keys** to access the admin and query keys.
 - Copy the **Admin key** or **Query key** as required for your application.
-- Setup Config
-  ```
-  #todo: specify config values to be set
-  ```
+- Setup Config:
+  - To set up configuration values using `settings.json`:
+    ```json
+    "AIConfiguration": {
+      "AzureSearch": {
+        "Endpoint": "<YOUR_ENDPOINT>",
+        "AdminKey": "<YOUR_ADMIN_KEY>"
+      }
+    }
+    ```
+    
+  - Or using .NET user secrets
+    ```cmd
+    dotnet user-secrets set "AIConfiguration:AzureSearch:Endpoint" "<YOUR_ENDPOINT>"
+    dotnet user-secrets set "AIConfiguration:AzureSearch:AdminKey" "<YOUR_ADMIN_KEY>"
+    ```
+
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/search/)
@@ -90,10 +103,16 @@ Click this button to deploy an `Azure AI Speech` service:
 - Go to the **Azure AI Speech** service in the Azure Portal.
 - Select **Keys and Endpoint** in the left navigation pane.
 - Here you can retrieve the primary and secondary keys for your service.
-- Setup Config
-  ```
-  #todo: specify config values to be set
-  ```
+- Setup Config:
+  - To set up configuration values using `settings.json`:
+    ```json
+
+    ```
+    
+  - Or using .NET user secrets
+    ```cmd
+
+    ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/)
@@ -112,10 +131,16 @@ Click this button to deploy an `Azure AI Vision` service:
 - Navigate to the **Azure AI Vision** resource in the Azure Portal.
 - Click on **Keys and Endpoint** in the left sidebar.
 - Retrieve the **Key1** or **Key2** as needed.
-- Setup Config
-  ```
-  #todo: specify config values to be set
-  ```
+- Setup Config:
+  - To set up configuration values using `settings.json`:
+    ```json
+
+    ```
+    
+  - Or using .NET user secrets
+    ```cmd
+
+    ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/)
@@ -134,10 +159,16 @@ Click this button to deploy an `Azure AI Language` service:
 - Once deployed, go to the **Azure AI Language** service inside the Azure Portal.
 - Navigate to **Keys and Endpoint** from the left navigation pane.
 - Copy the required **API key** for your application.
-- Setup Config
-  ```
-  #todo: specify config values to be set
-  ```
+- Setup Config:
+  - To set up configuration values using `settings.json`:
+    ```json
+
+    ```
+    
+  - Or using .NET user secrets
+    ```cmd
+
+    ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/language/)
@@ -156,10 +187,37 @@ Click this button to deploy an `Azure OpenAI` service:
 - After deploying, open the **Azure OpenAI Service** resource within the Azure Portal.
 - Click on **Keys and Endpoint** on the left sidebar.
 - Retrieve the desired **API key** for integration with your application.
-- Setup Config
-  ```
-  #todo: specify config values to be set
-  ```
+- Setup Config:
+  - To set up configuration values using `settings.json`:
+    ```json
+    "AIConfiguration": {
+      "GenerativeAI": {
+        "DefaultProviders": {
+          "CompletionService": "Azure",
+          "ChatService": "Azure",
+          "EmbeddingService": "Azure"
+        },
+        "Azure": {
+          "Endpoint": "https://YOUR-SERVICE.azure.com/",
+          "CompletionModelName": "YOUR gpt-3.5-turbo-instruct DEPLOYMENT NAME",
+          "ChatModelName": "YOUR gpt-4 DEPLOYMENT NAME",
+          "EmbeddingModelName": "YOUR text-embedding-ada-002 DEPLOYMENT NAME"
+        }
+      }
+    }
+    ```
+    
+  - Or using .NET user secrets
+    ```cmd
+      dotnet user-secrets set "AIConfiguration:GenerativeAI:DefaultProviders:CompletionService" "Azure"
+      dotnet user-secrets set "AIConfiguration:GenerativeAI:DefaultProviders:ChatService" "Azure"
+      dotnet user-secrets set "AIConfiguration:GenerativeAI:DefaultProviders:EmbeddingService" "Azure"
+      dotnet user-secrets set "AIConfiguration:GenerativeAI:Azure:Endpoint" "https://YOUR-SERVICE.azure.com/"
+      dotnet user-secrets set "AIConfiguration:GenerativeAI:Azure:CompletionModelName" "YOUR gpt-3.5-turbo-instruct DEPLOYMENT NAME"
+      dotnet user-secrets set "AIConfiguration:GenerativeAI:Azure:ChatModelName" "YOUR gpt-4 DEPLOYMENT NAME"
+      dotnet user-secrets set "AIConfiguration:GenerativeAI:Azure:EmbeddingModelName" "YOUR text-embedding-ada-002 DEPLOYMENT NAME"
+
+    ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/openai-service/)
@@ -179,10 +237,16 @@ Click this button to deploy an `Azure AI Content Safety` service:
 - Navigate to the **Azure AI Content Safety** service within the Azure Portal.
 - Select **Keys and Endpoint** from the left pane.
 - Copy the **Key1** or **Key2** as necessary for your project.
-- Setup Config
-  ```
-  #todo: specify config values to be set
-  ```
+- Setup Config:
+  - To set up configuration values using `settings.json`:
+    ```json
+
+    ```
+    
+  - Or using .NET user secrets
+    ```cmd
+
+    ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/content-safety/)
@@ -202,10 +266,20 @@ Click this button to deploy a `Bing Search` service:
 - After deployment, navigate to the **Bing Search** resource within the Azure Portal.
 - In the left pane, select **Keys and Endpoint**.
 - Here, you can access the primary and secondary keys for your Bing Search service. Copy either **Key1** or **Key2** as needed for your application.
-- Setup Config
-  ```
-  #todo: specify config values to be set
-  ```
+- Setup Config:
+  - To set up configuration values using `settings.json`:
+    ```json
+    "AIConfiguration": {
+      "BingSearch": {
+        "ApiKey": "<YOUR_BING_API_KEY>"
+      }
+    }
+    ```
+    
+  - Or using .NET user secrets
+    ```cmd
+    dotnet user-secrets set "AIConfiguration:BingSearch:ApiKey" "<YOUR_BING_API_KEY>"
+    ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/bing-web-search/)
