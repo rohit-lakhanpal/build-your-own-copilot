@@ -49,6 +49,8 @@ It's fascinating coming across this article titled ["Democratizing AI"](https://
 
 Fast-forward to today, and we witness a monumental push to integrate AI into every possible application, leading to the emergence of the "Co-Pilot" concept.
 
+This project contains resources and examples to help you as you **build your own Co-Pilot** applications that use modern AI to assist with complex tasks.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a id="what-is-a-copilot"></a>
@@ -161,7 +163,8 @@ Project Link: [https://github.com/rohit-lakhanpal/build-your-own-copilot](https:
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [Prompt engineering samples from DSR](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/advanced-prompt-engineering?pivots=programming-language-chat-completions)
+* [Prompt engineering samples from my friend and colleague DSR](https://github.com/PlagueHO/AzureOpenAIDemo/tree/main/prompt-examples)
+* [The Azure OpenAI Hack Pack built by my friend and colleague Abby](https://github.com/abbyjshen/AOAI-Hack-Pack)
 * [Project Miyagi](https://github.com/Azure-Samples/miyagi)
 * [Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/overview/#semantic-kernel-is-at-the-center-of-the-copilot-stack)
 * [Project Autogen](https://github.com/microsoft/autogen)
