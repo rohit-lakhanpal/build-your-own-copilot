@@ -151,7 +151,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-- Michael Friedrich | [@github](https://github.com/fredderf204)
+- [Michael Friedrich](https://www.linkedin.com/in/1michaelfriedrich/) | [@github](https://github.com/fredderf204)
 - [Rohit Lakhanpal](https://blog.try-it.dev/author/rohit/) | [@github](https://github.com/rohit-lakhanpal) | rohit@try-it.dev
 
 Project Link: [https://github.com/rohit-lakhanpal/build-your-own-copilot](https://github.com/rohit-lakhanpal/build-your-own-copilot)
