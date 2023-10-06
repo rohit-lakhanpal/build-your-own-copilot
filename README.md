@@ -39,6 +39,35 @@
   </p>
 </div>
 
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+    </li>
+    <li>
+      <a href="#what-is-a-copilot">What is a Co-Pilot?</a>
+    </li>
+    <li>
+      <a href="#technologies-explored">Technologies Explored</a>
+    </li>
+    <li>
+      <a href="#the-gen-ai-buzz">The Gen AI Buzz</a>
+      <ul>
+        <li><a href="#enabling-everyone">Enabling Everyone</a></li>
+      </ul>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#disclaimer">Disclaimer</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#references">References</a></li>
+  </ol>
+</details>
+
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
