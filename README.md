@@ -163,8 +163,10 @@ Project Link: [https://github.com/rohit-lakhanpal/build-your-own-copilot](https:
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [Prompt engineering samples from my friend and colleague DSR](https://github.com/PlagueHO/AzureOpenAIDemo/tree/main/prompt-examples)
-* [The Azure OpenAI Hack Pack built by my friend and colleague Abby](https://github.com/abbyjshen/AOAI-Hack-Pack)
+These toolkits are never the result of solitary efforts. I wish to extend my heartfelt thanks to my friends, colleagues, and fellow community members for their exceptional contributions. We have built upon your work, and it is your efforts that have laid the foundation for our success. Your work is not only recognised but deeply valued.
+
+* [Prompt engineering samples from my friend and colleague Daniel Scott-Raynsford ](https://github.com/PlagueHO/AzureOpenAIDemo/tree/main/prompt-examples)
+* [The Azure OpenAI Hack Pack built by my friend and colleague Abby Shen](https://github.com/abbyjshen/AOAI-Hack-Pack)
 * [Project Miyagi](https://github.com/Azure-Samples/miyagi)
 * [Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/overview/#semantic-kernel-is-at-the-center-of-the-copilot-stack)
 * [Project Autogen](https://github.com/microsoft/autogen)
