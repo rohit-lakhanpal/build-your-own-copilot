@@ -45,7 +45,7 @@
 | Id    | Industry       | Overview                                                         | Samples                                      |
 |-------|----------------|------------------------------------------------------------------|----------------------------------------------|
 | 1 | Healthcare     | With less time spent on admin, more time can be spent attending to a patient’s complex needs or seeing more patients. | **Hack** <br /> - [Healthcare Prompts](./prompts/healthcare/1-healthcare.md) <br /><br /> **POC** <br /> - [Python Notebook](./notebooks/python/healthcare/1-healthcare.ipynb) <br /> <br /> **MLP** <br /> *None yet.* |
-| 2 | Financial Services | Use GAI to analyse your transactions to keep you safe & offer recommendations | **Hack** <br /> - [Finance Prompts](./prompts/financial-services/2-financial-services.md) <br /><br /> **POC** <br /> - [Dotnet Notebook](./notebooks/dotnet/finanace/3-financial-services.ipynb) <br /> <br /> **MLP** <br /> *None yet.* |
+| 2 | Financial Services | Use GAI to analyse your transactions to keep you safe & offer recommendations | **Hack** <br /> - [Finance Prompts](./prompts/financial-services/2-financial-services.md) <br /><br /> **POC** <br /> - [Dotnet Notebook](./notebooks/dotnet/finance/3-financial-services.ipynb) <br /> <br /> **MLP** <br /> *None yet.* |
 | 3 | Retail & Customer Services | Use GAI to analyse compliance failures. | **Hack** <br /> *None yet.* <br /><br /> **POC** <br /> - [Dotnet Notebook](./notebooks/dotnet/retail/4-retail.ipynb) <br /> <br /> **MLP** <br /> *None yet.* |
 
 ## Common use-cases for LLMs:
