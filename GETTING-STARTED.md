@@ -303,6 +303,38 @@ These resources should provide a comprehensive guide to installing VS Code and s
 
 ---
 
+#### 3.3. **Chat-copilot**:
+- **[Chat Copilot Sample Application](https://github.com/microsoft/chat-copilot)**: This repository contains a sample application that demonstrates how to use the Chat Copilot API to build a chatbot that can answer questions about products and services.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+#### 3.4. **ChatGPT Plugin Quickstart using Python and FastAPI**:
+- **[ChatGPT Plugin Quickstart using Python and FastAPI](https://github.com/Azure-Samples/openai-plugin-fastapi)**: This repository contains a sample ChatGPT Plugin using GitHub Codespaces, VS Code (locally), and Azure.
+
+For this example, plese follow the [Run Locally](https://github.com/Azure-Samples/openai-plugin-fastapi#run-locally) instructions.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+## 4. Azure ML Prompt Flow ##
+
+### 4.1. General Prerequisites for Azure ML Prompt Flow
+
+- [Get started with Prompt flow (preview)](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/get-started-prompt-flow?view=azureml-api-2#setup)
+
+Please complete the following sections;
+
+- [Prerequisites: Enable Prompt flow in your Azure Machine Learning workspace](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/get-started-prompt-flow?view=azureml-api-2#setup)
+- [Setup - Connection](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/get-started-prompt-flow?view=azureml-api-2#connection)
+- [Setup - Runtime](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/get-started-prompt-flow?view=azureml-api-2#runtime)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/rohit-lakhanpal/build-your-own-copilot.svg?style=for-the-badge
