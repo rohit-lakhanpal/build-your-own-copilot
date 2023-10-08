@@ -39,6 +39,35 @@
   </p>
 </div>
 
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+    </li>
+    <li>
+      <a href="#what-is-a-copilot">What is a Co-Pilot?</a>
+    </li>
+    <li>
+      <a href="#technologies-explored">Technologies Explored</a>
+    </li>
+    <li>
+      <a href="#the-gen-ai-buzz">The Gen AI Buzz</a>
+      <ul>
+        <li><a href="#enabling-everyone">Enabling Everyone</a></li>
+      </ul>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#disclaimer">Disclaimer</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#references">References</a></li>
+  </ol>
+</details>
+
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
@@ -48,6 +77,8 @@ It's fascinating coming across this article titled ["Democratizing AI"](https://
 > *"It's not about having AI that beats humans in games; it's about helping everyone achieve more — humans and machines working together to make the world a better place."* 
 
 Fast-forward to today, and we witness a monumental push to integrate AI into every possible application, leading to the emergence of the "Co-Pilot" concept.
+
+This project contains resources and examples to help you as you **build your own Co-Pilot** applications that use modern AI to assist with complex tasks.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -161,7 +192,10 @@ Project Link: [https://github.com/rohit-lakhanpal/build-your-own-copilot](https:
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [Prompt engineering samples from DSR](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/advanced-prompt-engineering?pivots=programming-language-chat-completions)
+These toolkits are never the result of solitary efforts. I wish to extend my heartfelt thanks to my friends, colleagues, and fellow community members for their exceptional contributions. We have built upon your work, and it is your efforts that have laid the foundation for our success. Your work is not only recognised but deeply valued.
+
+* [Prompt engineering samples from my friend and colleague Daniel Scott-Raynsford ](https://github.com/PlagueHO/AzureOpenAIDemo/tree/main/prompt-examples)
+* [The Azure OpenAI Hack Pack built by my friend and colleague Abby Shen](https://github.com/abbyjshen/AOAI-Hack-Pack)
 * [Project Miyagi](https://github.com/Azure-Samples/miyagi)
 * [Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/overview/#semantic-kernel-is-at-the-center-of-the-copilot-stack)
 * [Project Autogen](https://github.com/microsoft/autogen)
