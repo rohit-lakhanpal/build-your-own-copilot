@@ -46,4 +46,14 @@ public static class Utils
         var lines = TextChunker.SplitPlainTextLines(text, maxTokensPerLine);
         return TextChunker.SplitPlainTextParagraphs(lines, maxTokensPerParagraph);
     }
+
+    public static string FormatJsonString(string jsonString)
+    {
+        var options = new JsonSerializerOptions
+        {
+            WriteIndented = true
+        };
+        var jsonElement = System.Text.Json.JsonSerializer.Deserialize<JsonElement>(jsonString);
+        return System.Text.Json.JsonSerializer.Serialize(jsonElement, options);
+    }   
 }

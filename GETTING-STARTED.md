@@ -32,18 +32,12 @@
   </a>
     <br />    
     <a href="/README.md">Introduction</a>
-    ·
-    <a href="/GETTING-STARTED.md"><strong>Getting Started</strong></a>    
-    ·
+    →
+    [ <a href="/GETTING-STARTED.md"><u>Getting Started</u></a> ]
+    →
     <a href="/USE-CASES.md">Use Cases</a>
   </p>
 </div>
-
-1. Clone the repo
-2. Create Cloud Resources
-3. Get .net versions
-4. Get vscode 
-5. vscode extnesions
 
 ## 1. Clone the repo
 
@@ -67,10 +61,23 @@ Click this button to deploy an `Azure Cognitive Search` service:
 - After deploying, navigate to the **Azure Cognitive Search** resource within the Azure Portal.
 - In the left pane, select **Keys** to access the admin and query keys.
 - Copy the **Admin key** or **Query key** as required for your application.
-- Setup Config
-  ```
-  #todo: specify config values to be set
-  ```
+- Setup Config:
+  - To set up configuration values using `settings.json`:
+    ```json
+    "AIConfiguration": {
+      "AzureSearch": {
+        "Endpoint": "<YOUR_ENDPOINT>",
+        "AdminKey": "<YOUR_ADMIN_KEY>"
+      }
+    }
+    ```
+    
+  - Or using .NET user secrets
+    ```cmd
+    dotnet user-secrets set "AIConfiguration:AzureSearch:Endpoint" "<YOUR_ENDPOINT>"
+    dotnet user-secrets set "AIConfiguration:AzureSearch:AdminKey" "<YOUR_ADMIN_KEY>"
+    ```
+
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/search/)
@@ -90,10 +97,16 @@ Click this button to deploy an `Azure AI Speech` service:
 - Go to the **Azure AI Speech** service in the Azure Portal.
 - Select **Keys and Endpoint** in the left navigation pane.
 - Here you can retrieve the primary and secondary keys for your service.
-- Setup Config
-  ```
-  #todo: specify config values to be set
-  ```
+- Setup Config:
+  - To set up configuration values using `settings.json`:
+    ```json
+
+    ```
+    
+  - Or using .NET user secrets
+    ```cmd
+
+    ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/)
@@ -112,10 +125,16 @@ Click this button to deploy an `Azure AI Vision` service:
 - Navigate to the **Azure AI Vision** resource in the Azure Portal.
 - Click on **Keys and Endpoint** in the left sidebar.
 - Retrieve the **Key1** or **Key2** as needed.
-- Setup Config
-  ```
-  #todo: specify config values to be set
-  ```
+- Setup Config:
+  - To set up configuration values using `settings.json`:
+    ```json
+
+    ```
+    
+  - Or using .NET user secrets
+    ```cmd
+
+    ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/)
@@ -134,10 +153,16 @@ Click this button to deploy an `Azure AI Language` service:
 - Once deployed, go to the **Azure AI Language** service inside the Azure Portal.
 - Navigate to **Keys and Endpoint** from the left navigation pane.
 - Copy the required **API key** for your application.
-- Setup Config
-  ```
-  #todo: specify config values to be set
-  ```
+- Setup Config:
+  - To set up configuration values using `settings.json`:
+    ```json
+
+    ```
+    
+  - Or using .NET user secrets
+    ```cmd
+
+    ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/language/)
@@ -156,10 +181,37 @@ Click this button to deploy an `Azure OpenAI` service:
 - After deploying, open the **Azure OpenAI Service** resource within the Azure Portal.
 - Click on **Keys and Endpoint** on the left sidebar.
 - Retrieve the desired **API key** for integration with your application.
-- Setup Config
-  ```
-  #todo: specify config values to be set
-  ```
+- Setup Config:
+  - To set up configuration values using `settings.json`:
+    ```json
+    "AIConfiguration": {
+      "GenerativeAI": {
+        "DefaultProviders": {
+          "CompletionService": "Azure",
+          "ChatService": "Azure",
+          "EmbeddingService": "Azure"
+        },
+        "Azure": {
+          "Endpoint": "https://YOUR-SERVICE.azure.com/",
+          "CompletionModelName": "YOUR gpt-3.5-turbo-instruct DEPLOYMENT NAME",
+          "ChatModelName": "YOUR gpt-4 DEPLOYMENT NAME",
+          "EmbeddingModelName": "YOUR text-embedding-ada-002 DEPLOYMENT NAME"
+        }
+      }
+    }
+    ```
+    
+  - Or using .NET user secrets
+    ```cmd
+      dotnet user-secrets set "AIConfiguration:GenerativeAI:DefaultProviders:CompletionService" "Azure"
+      dotnet user-secrets set "AIConfiguration:GenerativeAI:DefaultProviders:ChatService" "Azure"
+      dotnet user-secrets set "AIConfiguration:GenerativeAI:DefaultProviders:EmbeddingService" "Azure"
+      dotnet user-secrets set "AIConfiguration:GenerativeAI:Azure:Endpoint" "https://YOUR-SERVICE.azure.com/"
+      dotnet user-secrets set "AIConfiguration:GenerativeAI:Azure:CompletionModelName" "YOUR gpt-3.5-turbo-instruct DEPLOYMENT NAME"
+      dotnet user-secrets set "AIConfiguration:GenerativeAI:Azure:ChatModelName" "YOUR gpt-4 DEPLOYMENT NAME"
+      dotnet user-secrets set "AIConfiguration:GenerativeAI:Azure:EmbeddingModelName" "YOUR text-embedding-ada-002 DEPLOYMENT NAME"
+
+    ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/openai-service/)
@@ -179,10 +231,16 @@ Click this button to deploy an `Azure AI Content Safety` service:
 - Navigate to the **Azure AI Content Safety** service within the Azure Portal.
 - Select **Keys and Endpoint** from the left pane.
 - Copy the **Key1** or **Key2** as necessary for your project.
-- Setup Config
-  ```
-  #todo: specify config values to be set
-  ```
+- Setup Config:
+  - To set up configuration values using `settings.json`:
+    ```json
+
+    ```
+    
+  - Or using .NET user secrets
+    ```cmd
+
+    ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/content-safety/)
@@ -202,10 +260,20 @@ Click this button to deploy a `Bing Search` service:
 - After deployment, navigate to the **Bing Search** resource within the Azure Portal.
 - In the left pane, select **Keys and Endpoint**.
 - Here, you can access the primary and secondary keys for your Bing Search service. Copy either **Key1** or **Key2** as needed for your application.
-- Setup Config
-  ```
-  #todo: specify config values to be set
-  ```
+- Setup Config:
+  - To set up configuration values using `settings.json`:
+    ```json
+    "AIConfiguration": {
+      "BingSearch": {
+        "ApiKey": "<YOUR_BING_API_KEY>"
+      }
+    }
+    ```
+    
+  - Or using .NET user secrets
+    ```cmd
+    dotnet user-secrets set "AIConfiguration:BingSearch:ApiKey" "<YOUR_BING_API_KEY>"
+    ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/bing-web-search/)
@@ -220,17 +288,14 @@ Here are the documentation and resources for installing the local tools you requ
 #### 3.1. **VS Code Installation**:
    - **[Official Documentation](https://code.visualstudio.com/docs)**: Provides an overview, setup instructions, and introductory videos for getting started with VS Code.
    - **[Download Page](https://code.visualstudio.com/Download)**: You can download VS Code for Linux, macOS, or Windows from this page.
-   - **[Digital Ocean Tutorial](https://www.digitalocean.com/community/tutorial_series/how-to-install-and-set-up-visual-studio-code-on-ubuntu-20-04)**: This tutorial walks through the steps to install and setup VS Code on Ubuntu, including installing the Visual Studio Code Command Line Interface.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
 
 #### 3.2. **Extensions for Polyglot Notebooks**:
-   - **[Polyglot Programming with Notebooks](https://code.visualstudio.com/docs/datascience/notebooks)**: Describes the Polyglot Notebooks extension which allows multiple programming languages to be used natively in the same notebook in VS Code【58†source】.
-   - **[Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MS-dotnettools.dotnet-interactive-vscode)**: The marketplace page where you can install the Polyglot Notebooks extension and provides a brief getting started guide【59†source】.
-   - **[DEV Community Guide](https://dev.to/azure/net-notebooks-are-finally-here-and-its-awesome-26b5)**: Provides a step-by-step guide on installing VS Code extensions for Polyglot Notebooks, including Jupyter and SandDance for VSCode【60†source】.
-   - **[Practicing Algorithms using Polyglot Notebooks](https://dev.to/azure/net-notebooks-are-finally-here-and-its-awesome-26b5)**: Describes how to install, configure, and troubleshoot Polyglot Notebooks for practicing algorithms【61†source】.
+   - **[Polyglot Programming with Notebooks](https://marketplace.visualstudio.com/items?itemName=MS-dotnettools.dotnet-interactive-vscode)**: Describes the Polyglot Notebooks extension which allows multiple programming languages to be used natively in the same notebook in VS Code.
+   - **[Install the Polyglot Notebooks extension](https://marketplace.visualstudio.com/items?itemName=MS-dotnettools.dotnet-interactive-vscode)**: Polyglot Notebooks for VS Code. Use multiple languages in one notebook with full language server support for each language and share variables between them.
 
 These resources should provide a comprehensive guide to installing VS Code and setting up extensions for polyglot notebooks.
 

@@ -1,47 +1,46 @@
 {
-    // Main configuration file for application settings
-    "AIConfiguration": {
-      // Settings for Generative AI Services
-      "GenerativeAI": {
-        // Specifies default service providers for various AI functionalities
-        // Acceptable values: "Azure" or "OpenAI"
-        "DefaultProviders": {
-          "CompletionService": "Azure",
-          "ChatService": "Azure",
-          "EmbeddingService": "Azure"
-        },
-        "Azure": {
-          // Base endpoint for Azure OpenAI services
-          "Endpoint": "",
-          // API Key for authenticating requests to Azure OpenAI
-          "ApiKey": "",
-          // Deployment names for specific Azure OpenAI functionalities
-          "CompletionDeploymentName": "",
-          "ChatDeploymentName": "",
-          "EmbeddingDeploymentName": ""
-        },
-        "OpenAI": {
-          // OpenAI Organization ID
-          "OrganizationId": "",
-          // API Key for authenticating requests to OpenAI
-          "ApiKey": "",
-          // Model names for specific OpenAI functionalities
-          "CompletionModelName": "",
-          "ChatModelName": "",
-          "EmbeddingModelName": ""
-        }
+  // Main configuration file for application settings
+  "AIConfiguration": {
+    // Settings for Generative AI Services
+    "GenerativeAI": {
+      // Specifies default service providers for various AI functionalities
+      // Acceptable values: "Azure" or "OpenAI"
+      "DefaultProviders": {
+        "CompletionService": "Azure",
+        "ChatService": "Azure",
+        "EmbeddingService": "Azure"
       },
-      // Configuration for Azure Search Service
-      "AzureSearch": {
+      "Azure": {
+        // Base endpoint for Azure OpenAI services
         "Endpoint": "",
-        // Admin key for authenticating requests to Azure Search Service
-        "AdminKey": ""
+        // API Key for authenticating requests to Azure OpenAI
+        "ApiKey": "",
+        // Deployment names for specific Azure OpenAI functionalities
+        "CompletionDeploymentName": "",
+        "ChatDeploymentName": "",
+        "EmbeddingDeploymentName": ""
       },
-      // Configuration for Bing Search Service
-      "BingSearch": {
-        // API Key for authenticating requests to Bing Search Service
-        "ApiKey": ""
+      "OpenAI": { // If using Azure leave it empty
+        // OpenAI Organization ID
+        "OrganizationId": "",
+        // API Key for authenticating requests to OpenAI
+        "ApiKey": "",
+        // Model names for specific OpenAI functionalities
+        "CompletionModelName": "",
+        "ChatModelName": "",
+        "EmbeddingModelName": ""
       }
+    },
+    // Configuration for Azure Search Service
+    "AzureSearch": {
+      "Endpoint": "",
+      // Admin key for authenticating requests to Azure Search Service
+      "AdminKey": ""
+    },
+    // Configuration for Bing Search Service
+    "BingSearch": {
+      // API Key for authenticating requests to Bing Search Service
+      "ApiKey": ""
     }
   }
-  
+}

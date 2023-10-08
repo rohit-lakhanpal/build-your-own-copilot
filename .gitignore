@@ -399,3 +399,4 @@ FodyWeavers.xsd
 notebooks/dotnet/.env
 .DS_Store
 notebooks/dotnet/config/settings.json
+*-bak
