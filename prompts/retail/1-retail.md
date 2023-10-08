@@ -4,7 +4,7 @@ As a result of having to invest in omnichannel capabilities during the
 pandemic, the retail industry should be better placed to integrate 
 GAI into existing digital platforms. Such integration could be 
 particularly important as companies look for new ways to 
-differentiate and personalise products, while remaining cost-competitiv
+differentiate and personalise products, while remaining cost-competitive
 
 References: [Australia’s Generative AI opportunity Research paper | TechCouncil of Australia](https://techcouncil.com.au/wp-content/uploads/2023/07/230714-Australias-Gen-AI-Opportunity-Final-report-vF4.pdf).
 
@@ -12,7 +12,7 @@ References: [Australia’s Generative AI opportunity Research paper | TechCounci
 | | |
 | -: | :- |
 | Industry | Retail |
-| Usecase  | Key feature summarisation and product descriptions to present most relevant content in concise form |
+| Use case  | Key feature summarisation and product descriptions to present most relevant content in concise form |
 | WHO | Retail product mangers |
 | WHAT | AOAI takes a very long product description and summarizes it into one sentence. |
 | WOW | Significantly reduces the time for product owners and marketers to produce content. |

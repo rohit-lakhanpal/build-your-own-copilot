@@ -4,7 +4,7 @@ As a result of having to invest in omnichannel capabilities during the
 pandemic, the retail industry should be better placed to integrate 
 GAI into existing digital platforms. Such integration could be 
 particularly important as companies look for new ways to 
-differentiate and personalise products, while remaining cost-competitiv
+differentiate and personalise products, while remaining cost-competitive
 
 References: [Australia’s Generative AI opportunity Research paper | TechCouncil of Australia](https://techcouncil.com.au/wp-content/uploads/2023/07/230714-Australias-Gen-AI-Opportunity-Final-report-vF4.pdf).
 
@@ -12,12 +12,12 @@ References: [Australia’s Generative AI opportunity Research paper | TechCounci
 | | |
 | -: | :- |
 | Industry | Retail |
-| Usecase  | Provide personalised customer support and automate customer onboarding with sophisticated conversational assistants. |
+| Use case  | Provide personalised customer support and automate customer onboarding with sophisticated conversational assistants. |
 | WHO | Customers |
 | WHAT | Create a plugin that can be used in ChatGPT, Bing Chat and Windows Copilot |
 | WOW | Gives developers and product managers a chat environment to develop and test AI based plugins. |
 
-This example is based on 2 exisiting samples:
+This example is based on 2 existing samples:
 
 - Chat Copilot Sample Application - https://github.com/microsoft/chat-copilot
 - ChatGPT Plugin Quickstart using Python and FastAPI - https://github.com/Azure-Samples/openai-plugin-fastapi
@@ -27,9 +27,9 @@ This example is based on 2 exisiting samples:
 | | |
 | -: | :- |
 | Overview | Chat Copilot Sample Application |
-| Techniques | No custoum plugin installed |
+| Techniques | No custom plugin installed |
 
-![Chat Copilot](./retail1.png "Chat Copilot")
+![Chat Copilot](../docs/img/retail1.png "Chat Copilot")
 
 **User Prompt**
 
@@ -71,7 +71,7 @@ I hope this helps! Let me know if you have any other questions.
 | Overview | Chat Copilot Sample Application |
 | Techniques | Custom plugin installed |
 
-![Chat Copilot](./retail2.png "Chat Copilot")
+![Chat Copilot](../docs/img/retail2.png "Chat Copilot")
 
 **User Prompt**
 
