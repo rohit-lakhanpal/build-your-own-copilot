@@ -1,4 +1,4 @@
-# Manafacturing example
+# Manufacturing example
 
 GAI may be a game-changer for Australian manufacturing, by enabling 
 a suite of advanced manufacturing capabilities that play to Australia’s 
@@ -11,7 +11,7 @@ References: [Australia’s Generative AI opportunity Research paper | TechCounci
 | | |
 | -: | :- |
 | Industry | Manufacturing |
-| Usecase  |  Assist upskilling of apprentices and technicians, through conversational on-the-job training of simple concepts  |
+| Use case  |  Assist upskilling of apprentices and technicians, through conversational on-the-job training of simple concepts  |
 | WHO | Technicians and field workers. |
 | WHAT |  Technicians can use natural language to get the right procedure to repair a physical asset. |
 | WOW | Significantly reduce the time for technicians to be able to repair physical assets. |
@@ -28,7 +28,7 @@ Based on the Bring Your Own Data QnA sample in Azure ML Studio.
 
 **Prompt Flow GUI**
 
-![Prompt Flow GUI](./manufacturing.png "Prompt Flow GUI")
+![Prompt Flow GUI](../../docs/img/manufacturing.png "Prompt Flow GUI")
 
 **System Prompt**
 
