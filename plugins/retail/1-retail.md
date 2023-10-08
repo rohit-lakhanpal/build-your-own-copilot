@@ -6,6 +6,8 @@ GAI into existing digital platforms. Such integration could be
 particularly important as companies look for new ways to 
 differentiate and personalise products, while remaining cost-competitive
 
+![Sector deep-dive: Retail and Customer Services](https://raw.githubusercontent.com/rohit-lakhanpal/build-your-own-copilot/main/docs/img/retail-and-customer-services.png)
+
 References: [Australia’s Generative AI opportunity Research paper | TechCouncil of Australia](https://techcouncil.com.au/wp-content/uploads/2023/07/230714-Australias-Gen-AI-Opportunity-Final-report-vF4.pdf).
 
 
