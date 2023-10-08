@@ -6,6 +6,8 @@ existing manufacturing strengths of producing high quality and highly
 technical products. Importantly, shifting to advanced manufacturing is 
 a strategic priority for both State and Federal Governments. 
 
+![Sector deep-dive: Manufacturing](https://raw.githubusercontent.com/rohit-lakhanpal/build-your-own-copilot/main/docs/img/manufacturing-deep-dive.png)
+
 References: [Australia’s Generative AI opportunity Research paper | TechCouncil of Australia](https://techcouncil.com.au/wp-content/uploads/2023/07/230714-Australias-Gen-AI-Opportunity-Final-report-vF4.pdf).
 
 | | |
