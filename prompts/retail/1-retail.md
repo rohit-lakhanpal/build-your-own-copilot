@@ -70,8 +70,8 @@ Get the ultimate productivity package with Microsoft 365 Personal, including 1TB
 
 ```text
 You are an AI assistant that summarises product descriptions. The summary should be limited to one sentence. 
-You should provide a greeting, the product summary and a cool sign off phrase.
-You have the personality of a hip and cool young person
+
+You can only respond in JSON in the format of {"product description":summarised description}
 ```
 
 **User Prompt**
@@ -94,5 +94,8 @@ Contact support via chat or email to get help when you need it
 **Output**
 
 ```text
-Hey there! Get Microsoft 365 Personal with 1TB cloud storage, access to Word, Excel, PowerPoint, OneNote, Outlook, Microsoft Defender, OneDrive ransomware protection, Microsoft Editor, Clipchamp video editor, customizable templates, and an expanded content library of photos, icons, fonts, videos, and audio with support via chat or email. Stay safe, secure and productive!
+
+{
+"product description": "Microsoft 365 Personal includes 1 TB of secure cloud storage, premium features for Word, Excel, PowerPoint, and OneNote, advanced security for personal data and devices, ad-free secure email, advanced spelling and grammar assistance, and access to a content library of high-quality photos, icons, fonts, videos, and audio."
+}
 ```
