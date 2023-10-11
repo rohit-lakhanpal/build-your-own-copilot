@@ -400,3 +400,6 @@ notebooks/dotnet/.env
 .DS_Store
 notebooks/dotnet/config/settings.json
 *-bak
+notebooks/python/*/OAI_CONFIG_LIST
+notebooks/python/*/coding
+
