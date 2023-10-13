@@ -21,7 +21,7 @@
 <br />
 <div align="center">
   <h3 align="center">
-    Build your own Co-Pilot | Use Cases
+    Build your own Co-Pilot | Resources
   </h3>
 
   <p align="center">
