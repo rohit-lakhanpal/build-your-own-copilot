@@ -36,6 +36,8 @@
     <a href="GETTING-STARTED.md">Getting Started</a>
     →
     <a href="USE-CASES.md">Use Cases</a>
+    →
+    <a href="RESOURCES.md"><u>Resources</u></a> 
   </p>
 </div>
 

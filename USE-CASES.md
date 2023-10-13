@@ -31,11 +31,13 @@
       <img src="docs/img/logo.png" alt="Logo" height="80">
     </a>
     <br />    
-    <a href="/README.md">Introduction</a>
+    <a href="README.md">Introduction</a>
     →
-    <a href="/GETTING-STARTED.md">Getting Started</a>
+    <a href="GETTING-STARTED.md">Getting Started</a>
     →
-    [ <a href="/USE-CASES.md"><u>Use Cases</u></a> ]
+    [ <a href="USE-CASES.md"><u>Use Cases</u></a> ]
+    →
+    <a href="RESOURCES.md"><u>Resources</u></a> 
 
   </p>
 </div>
