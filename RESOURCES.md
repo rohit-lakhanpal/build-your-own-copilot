@@ -44,11 +44,11 @@
 
 ## Resources
 
-| Description of Topic | Who to Lead & Link to Presentation |
+| Session | Resources |
 |----------------------|-------------------------------------|
-| Possibilities with AI: Partner Journey to AI Success | Phil Barlow, CTO, Global Partner Solutions<br /><br />- [Presentation Link](/docs/presentations/era-of-ai-possibilities.pdf) <br /> - [Australia's Gen AI Opportunity](https://techcouncil.com.au/wp-content/uploads/2023/07/230714-Australias-Gen-AI-Opportunity-Final-report-vF4.pdf) <br /> - [Work Trend Index](https://www.microsoft.com/en-us/worklab/work-trend-index/will-ai-fix-work) |
-| Best practices for ISVs to bring a new AI solution to market | Sharka Chobot, Chief Transformation Officer, Neural Impact<br /><br />- [Presentation Link](/docs/presentations/ai-gtm-with-NeuralImpact-Sharka-Chobot.pdf) |
-| Build your own Co-Pilot | Michael Fredrich, Sr Cloud Solutions Architect <br /> Rohit Lakhanpal, Partner Tech Strategist<br /><br />- [Presentation Link](/docs/presentations/build-your-copilot.pdf) |
+| Possibilities with AI: Partner Journey to AI Success | [Phil Barlow](https://www.linkedin.com/in/pjbarlow/), CTO, Global Partner Solutions<br /><br />- [Presentation Link](/docs/presentations/era-of-ai-possibilities.pdf) <br /> - [Australia's Gen AI Opportunity](https://techcouncil.com.au/wp-content/uploads/2023/07/230714-Australias-Gen-AI-Opportunity-Final-report-vF4.pdf) <br /> - [Work Trend Index](https://www.microsoft.com/en-us/worklab/work-trend-index/will-ai-fix-work) |
+| Best practices for ISVs to bring a new AI solution to market | [Sharka Chobot](https://www.linkedin.com/in/sharka-chobot-50620511a/), Chief Transformation Officer, Neural Impact<br /><br />- [Presentation Link](/docs/presentations/ai-gtm-with-NeuralImpact-Sharka-Chobot.pdf) |
+| Build your own Co-Pilot | [Michael Friedrich](https://www.linkedin.com/in/1michaelfriedrich/), Sr Cloud Solutions Architect <br /> [Rohit Lakhanpal](https://www.linkedin.com/in/rohitlakhanpal/), Partner Tech Strategist<br /><br />- [Presentation Link](/docs/presentations/build-your-copilot.pdf) |
 
 
 
