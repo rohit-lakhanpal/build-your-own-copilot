@@ -51,6 +51,28 @@
 | 3. | Retail & Customer Services | Use GAI to analyse compliance failures or generate product marketing content. | **Hack** <br /> - [Retail Prompts](./prompts/retail/1-retail.md) <br /><br /> **POC** <br /> - [Dotnet Notebook](./notebooks/dotnet/retail/4-retail.ipynb) <br /> <br /> **MLP** <br /> - [Plugin](./plugins/retail/1-retail.md) |
 | 4. | Manufacturing | Use GAI to assist up-skilling of apprentices and technicians, through conversational on-the-job training of simple concepts. | **Hack** <br /> *None yet.* <br /><br /> **POC** <br /> - [ML Flow](./flows/manufacturing/1-manufacturing.md) <br /> <br /> **MLP** <br /> *None yet.* |
 
+
+## Other Samples
+
+| Solution Accelerators          | Repository Link                                                                                                     |
+|-------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| Business Process Automation   | [GitHub](https://github.com/Azure/business-process-automation)                                                       |
+| Azure Cognitive Search + OpenAI | [GitHub](https://github.com/Azure-Samples/azure-search-openai-demo)                                                |
+| PowerApp + OpenAI             | [GitHub](https://github.com/Azure/azure-openai-samples/tree/main/solution_accelerators/PowerApp)                    |
+| Azure SQL Database + OpenAI   | [GitHub](https://github.com/louis-li/SqlGPT)                                                                        |
+| ChatGPT + Enterprise data with Azure OpenAI | [GitHub](https://github.com/lordlinus/Enterprise-ChatGPT)                                             |
+| Azure OpenAI Semantic Search Demo - Document Upload | [GitHub](https://github.com/MaheshSQL/openai-vector-search-demo)                             |
+| Redis + OpenAI                | [GitHub](https://github.com/louis-li/pdfGPT)                                                                       |
+
+## Relevant Repositories
+
+| Title                       | Repository Link                                                                                                     |
+|------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| OpenAI Cookbook              | [GitHub](https://github.com/openai/openai-cookbook)                                                                 |
+| Call center solutions        | [GitHub - Example 1](https://github.com/jakeatmsft/AzureOpenAIExamples/blob/main/Examples/Speech/Conversation_SSML%20OpenAI.ipynb) [GitHub - Example 2](https://github.com/amulchapla/AI-Powered-Call-Center-Intelligence) |
+| Income Statement Analysis    | [GitHub](https://github.com/jakeatmsft/AzureOpenAIExamples/blob/main/Examples/FormRecognizer/Balance_sheet_analysis.ipynb) |
+
+
 ## Common use-cases for LLMs:
 | Use Case                                   | Description                                                                                                                                                             |
 |--------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

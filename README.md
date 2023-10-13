@@ -214,6 +214,7 @@ These toolkits are never the result of solitary efforts. I wish to extend my hea
 * [Models](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/models)
 * [Quotas and limits](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/quotas-limits)
 * [Data privacy with Azure OpenAI](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy#can-a-customer-opt-out-of-the-logging-and-human-review-process)
+* [Azure Samples - E2E](https://github.com/Azure-Samples/openai/tree/main/End_to_end_Solutions)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
