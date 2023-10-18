@@ -47,12 +47,11 @@
     ```sh
     git clone https://github.com/rohit-lakhanpal/build-your-own-copilot.git
     ```
-1. Create app config from sample
-    ```
-    todo.
-    ```
 
 ## 2. Deploy Cloud Resources
+
+> ⚠️ **Note:** If you are running a hackathon & plan to use an ***Azure Pass*** for your team, please follow these [instructions](docs/deploy/AZURE_PASS.md) to deploy the resources.
+
 ### 2.a. Deploy Azure Cognitive Search
 
 Click this button to deploy an `Azure Cognitive Search` service:
@@ -99,16 +98,6 @@ Click this button to deploy an `Azure AI Speech` service:
 - Go to the **Azure AI Speech** service in the Azure Portal.
 - Select **Keys and Endpoint** in the left navigation pane.
 - Here you can retrieve the primary and secondary keys for your service.
-- Setup Config:
-  - To set up configuration values using `settings.json`:
-    ```json
-
-    ```
-    
-  - Or using .NET user secrets
-    ```cmd
-
-    ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/)
@@ -127,16 +116,6 @@ Click this button to deploy an `Azure AI Vision` service:
 - Navigate to the **Azure AI Vision** resource in the Azure Portal.
 - Click on **Keys and Endpoint** in the left sidebar.
 - Retrieve the **Key1** or **Key2** as needed.
-- Setup Config:
-  - To set up configuration values using `settings.json`:
-    ```json
-
-    ```
-    
-  - Or using .NET user secrets
-    ```cmd
-
-    ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/)
@@ -155,16 +134,6 @@ Click this button to deploy an `Azure AI Language` service:
 - Once deployed, go to the **Azure AI Language** service inside the Azure Portal.
 - Navigate to **Keys and Endpoint** from the left navigation pane.
 - Copy the required **API key** for your application.
-- Setup Config:
-  - To set up configuration values using `settings.json`:
-    ```json
-
-    ```
-    
-  - Or using .NET user secrets
-    ```cmd
-
-    ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/language/)
@@ -233,16 +202,6 @@ Click this button to deploy an `Azure AI Content Safety` service:
 - Navigate to the **Azure AI Content Safety** service within the Azure Portal.
 - Select **Keys and Endpoint** from the left pane.
 - Copy the **Key1** or **Key2** as necessary for your project.
-- Setup Config:
-  - To set up configuration values using `settings.json`:
-    ```json
-
-    ```
-    
-  - Or using .NET user secrets
-    ```cmd
-
-    ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/content-safety/)
