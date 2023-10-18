@@ -50,7 +50,7 @@
 
 ## 2. Deploy Cloud Resources
 
-> ⚠️ **Note:** If you are running a hackathon & plan to use an ***Azure Pass*** for your team, please follow these [instructions](/docs/deploy/AZURE_PASS.md) to deploy the resources.
+> ⚠️ **Note:** If you are running a hackathon & plan to use an ***Azure Pass*** for your team, please follow these [instructions](docs/deploy/AZURE_PASS.md) to deploy the resources.
 
 ### 2.a. Deploy Azure Cognitive Search
 

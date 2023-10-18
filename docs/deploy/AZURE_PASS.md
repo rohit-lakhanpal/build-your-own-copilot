@@ -46,9 +46,11 @@ To streamline the process of setting up users and resources for a hackathon, thi
 - If you add a payment instrument to the subscription and the subscription is active at the conclusion of the offer it will be converted to Pay-As-You-Go.
 - Subscriptions are activated within minutes of the promo code being redeemed.
 
-## Steps
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Pre-requisites
+---
+
+## Pre-requisites
 
 1. Make sure you have the Azure CLI and `jq` installed in your environment.
 2. You need Azure admin privileges to create users and resources.
@@ -56,7 +58,7 @@ To streamline the process of setting up users and resources for a hackathon, thi
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
-### Setup Instructions
+## Setup Instructions
 
 1. **Identify Your Azure Domain**:
     - Navigate to [Azure Active Directory Overview](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview).
@@ -73,7 +75,6 @@ To streamline the process of setting up users and resources for a hackathon, thi
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
 ### Script Overview
 
 - The script begins by defining essential variables like `domain`, `password`, and `location`.
@@ -87,16 +88,12 @@ To streamline the process of setting up users and resources for a hackathon, thi
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
 ### Notes
 
 - Ensure you have sufficient permissions and quotas in your Azure subscription to create multiple instances of the services.
 - Always validate the users and resources after the script completes to ensure everything is set up as expected.
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
----
 
 ### Script
 
