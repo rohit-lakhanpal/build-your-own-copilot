@@ -204,7 +204,7 @@ do
         az cognitiveservices account create \
             --name "${prefix}-openai-svc-$i" \
             --resource-group "resource-group-$i" \
-            --kind OpenAi \
+            --kind OpenAI \
             --sku S0 \
             --location "$location" \
             --yes
@@ -248,6 +248,47 @@ wichsx-vision-svc-2 has been created.
 Unable to create wichsx-openai-svc-2 as OpenAI resource type does not exist.
 --------------
 ```
+#### Azure OpenAI resource creation only (optional)
+In most cases you'll find that you cannot provision Azure Open AI resources when Azure pass was granted, this section highlights the creation of these resources only. 
+```sh
+location="eastus"  # Azure location for the resource groups
+
+# Generate a random 6-letter prefix
+prefix=$(head /dev/urandom | tr -dc 'a-z' | head -c6)
+
+# Initialize an array to store messages
+declare -a messages
+for i in {2..20}
+  do
+  # OpenAI
+      openai_exists=$(az cognitiveservices account list-kinds | jq 'contains(["OpenAI"])')
+      if [ "$openai_exists" == "true" ]; then
+          az cognitiveservices account create \
+              --name "${prefix}-openai-svc-$i" \
+              --resource-group "resource-group-$i" \
+              --kind OpenAI \
+              --sku S0 \
+              --location "$location" \
+              --yes
+          messages+=("${prefix}-openai-svc-$i has been created.")
+      else
+          messages+=("Unable to create ${prefix}-openai-svc-$i as OpenAI resource type does not exist.")
+      fi
+      messages+=("--------------")
+  done
+```
+Once the script completes, you should see a summary of all operations performed. It might look something like this:
+
+```text
+Summary of operations:
+======================
+
+wichsx-openai-svc-1 has been created.
+--------------
+wichsx-openai-svc-2 has been created.
+--------------
+```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
