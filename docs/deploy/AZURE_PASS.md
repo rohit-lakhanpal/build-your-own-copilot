@@ -251,14 +251,14 @@ Unable to create wichsx-openai-svc-2 as OpenAI resource type does not exist.
 #### Azure OpenAI resource creation only (optional)
 In most cases you'll find that you cannot provision Azure Open AI resources when Azure pass was granted, this section highlights the creation of these resources only. 
 ```sh
-location="eastus"  # Azure location for the resource groups
+location="canadaeast"  # Azure location for the OpenAI resources where GPT-4 is enabled
 
 # Generate a random 6-letter prefix
 prefix=$(head /dev/urandom | tr -dc 'a-z' | head -c6)
 
 # Initialize an array to store messages
 declare -a messages
-for i in {2..20}
+for i in {1..5}
   do
   # OpenAI
       openai_exists=$(az cognitiveservices account list-kinds | jq 'contains(["OpenAI"])')
