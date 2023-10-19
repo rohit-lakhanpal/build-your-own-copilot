@@ -270,6 +270,34 @@ for i in {1..5}
               --sku S0 \
               --location "$location" \
               --yes
+          ## deploy the models
+          az cognitiveservices account keys list \
+        --name "${prefix}-openai-svc-$i" \
+        --resource-group "resource-group-$i" \ | jq -r .key1
+    # OpenAI deploy the models text-embedding-ada-002, gpt-4-32k, gpt-35-turbo-16k
+    az cognitiveservices account deployment create \
+        --name "${prefix}-openai-svc-$i" \
+        --resource-group "resource-group-$i" \
+        --deployment-name text-embedding-ada-002 \
+        --model-name text-embedding-ada-002 \
+        --model-format OpenAI \
+        --model-version "2"
+
+    az cognitiveservices account deployment create \
+        --name "${prefix}-openai-svc-$i" \
+        --resource-group "resource-group-$i" \
+        --deployment-name gpt-4-32k \
+        --model-name gpt-4-32k \
+        --model-format OpenAI \
+        --model-version "0613"
+
+    az cognitiveservices account deployment create \
+        --name "${prefix}-openai-svc-$i" \
+        --resource-group "resource-group-$i" \
+        --deployment-name gpt-35-turbo-16k \
+        --model-name gpt-35-turbo-16k \
+        --model-format OpenAI \
+        --model-version "0613"
           messages+=("${prefix}-openai-svc-$i has been created.")
       else
           messages+=("Unable to create ${prefix}-openai-svc-$i as OpenAI resource type does not exist.")
