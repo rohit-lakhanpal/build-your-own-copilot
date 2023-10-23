@@ -215,7 +215,7 @@ Click this button to deploy an `Azure AI Content Safety` service:
 
 Click this button to deploy a `Bing Search` service:
 
-[![Deploy Bing Search](https://aka.ms/deploytoazurebutton)](byoc-deploy-bing-search)
+[![Deploy Bing Search](https://aka.ms/deploytoazurebutton)](https://aka.ms/byoc-bing-search)
 
 #### Post-Deployment:
 - After deployment, navigate to the **Bing Search** resource within the Azure Portal.
