@@ -251,7 +251,7 @@ Unable to create wichsx-openai-svc-2 as OpenAI resource type does not exist.
 #### Azure OpenAI resource creation only (optional)
 In most cases you'll find that you cannot provision Azure Open AI resources when Azure pass was granted, this section highlights the creation of these resources only. 
 ```sh
-location="canadaeast"  # Azure location for the OpenAI resources where GPT-4 is enabled
+location="canadaeast"  # Azure location for the OpenAI resources where GPT-4 is enabled, each region may have different supported models refer to https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability
 
 # Generate a random 6-letter prefix
 prefix=$(head /dev/urandom | tr -dc 'a-z' | head -c6)
@@ -259,51 +259,52 @@ prefix=$(head /dev/urandom | tr -dc 'a-z' | head -c6)
 # Initialize an array to store messages
 declare -a messages
 for i in {1..5}
-  do
-  # OpenAI
-      openai_exists=$(az cognitiveservices account list-kinds | jq 'contains(["OpenAI"])')
-      if [ "$openai_exists" == "true" ]; then
-          az cognitiveservices account create \
-              --name "${prefix}-openai-svc-$i" \
-              --resource-group "resource-group-$i" \
-              --kind OpenAI \
-              --sku S0 \
-              --location "$location" \
-              --yes
-          ## deploy the models
-          az cognitiveservices account keys list \
-        --name "${prefix}-openai-svc-$i" \
-        --resource-group "resource-group-$i" \ | jq -r .key1
-    # OpenAI deploy the models text-embedding-ada-002, gpt-4-32k, gpt-35-turbo-16k
-    az cognitiveservices account deployment create \
-        --name "${prefix}-openai-svc-$i" \
-        --resource-group "resource-group-$i" \
-        --deployment-name text-embedding-ada-002 \
-        --model-name text-embedding-ada-002 \
-        --model-format OpenAI \
-        --model-version "2"
+do
+    # OpenAI
+    openai_exists=$(az cognitiveservices account list-kinds | jq 'contains(["OpenAI"])')
+    if [ "$openai_exists" == "true" ]; then
+        az cognitiveservices account create \
+            --name "${prefix}-openai-svc-$i" \
+            --resource-group "resource-group-$i" \
+            --kind OpenAI \
+            --sku S0 \
+            --location "$location" \
+            --yes
 
-    az cognitiveservices account deployment create \
-        --name "${prefix}-openai-svc-$i" \
-        --resource-group "resource-group-$i" \
-        --deployment-name gpt-4-32k \
-        --model-name gpt-4-32k \
-        --model-format OpenAI \
-        --model-version "0613"
+        ## deploy the models, each region may have different supported models, refer to https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability
+        az cognitiveservices account keys list \
+            --name "${prefix}-openai-svc-$i" \
+            --resource-group "resource-group-$i" \ | jq -r .key1
 
-    az cognitiveservices account deployment create \
-        --name "${prefix}-openai-svc-$i" \
-        --resource-group "resource-group-$i" \
-        --deployment-name gpt-35-turbo-16k \
-        --model-name gpt-35-turbo-16k \
-        --model-format OpenAI \
-        --model-version "0613"
-          messages+=("${prefix}-openai-svc-$i has been created.")
-      else
-          messages+=("Unable to create ${prefix}-openai-svc-$i as OpenAI resource type does not exist.")
-      fi
-      messages+=("--------------")
-  done
+        # OpenAI deploy the models text-embedding-ada-002, gpt-4-32k, gpt-35-turbo-16k
+        az cognitiveservices account deployment create \
+            --name "${prefix}-openai-svc-$i" \
+            --resource-group "resource-group-$i" \
+            --deployment-name text-embedding-ada-002 \
+            --model-name text-embedding-ada-002 \
+            --model-format OpenAI \
+            --model-version "2"
+        az cognitiveservices account deployment create \
+            --name "${prefix}-openai-svc-$i" \
+            --resource-group "resource-group-$i" \
+            --deployment-name gpt-4-32k \
+            --model-name gpt-4-32k \
+            --model-format OpenAI \
+            --model-version "0613"
+
+        az cognitiveservices account deployment create \
+            --name "${prefix}-openai-svc-$i" \
+            --resource-group "resource-group-$i" \
+            --deployment-name gpt-35-turbo-16k \
+            --model-name gpt-35-turbo-16k \
+            --model-format OpenAI \
+            --model-version "0613"
+            messages+=("${prefix}-openai-svc-$i has been created.")
+    else
+        messages+=("Unable to create ${prefix}-openai-svc-$i as OpenAI resource type does not exist.")
+    fi
+        messages+=("--------------")
+done
 ```
 Once the script completes, you should see a summary of all operations performed. It might look something like this:
 
