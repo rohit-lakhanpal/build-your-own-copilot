@@ -187,7 +187,7 @@ Ensure that the `OpenAiConfigs` section in `config/settings.json` is correctly c
           "BaseUrl": "<your Azure OpenAI API base here>",
           "ModelId": "<deployment id for the model>",
           "ModelType": "<must be completions or embeddings>",
-          "ServiceId": ""
+          "ServiceId": "<must be a unique string;e.g. az-gpt-4>"
       }
   ]
   ```
@@ -275,7 +275,7 @@ These resources should provide a comprehensive guide to installing VS Code and s
 #### 3.4. **ChatGPT Plugin Quickstart using Python and FastAPI**:
 - **[ChatGPT Plugin Quickstart using Python and FastAPI](https://github.com/Azure-Samples/openai-plugin-fastapi)**: This repository contains a sample ChatGPT Plugin using GitHub Codespaces, VS Code (locally), and Azure.
 
-For this example, plese follow the [Run Locally](https://github.com/Azure-Samples/openai-plugin-fastapi#run-locally) instructions.
+For this example, please follow the [Run Locally](https://github.com/Azure-Samples/openai-plugin-fastapi#run-locally) instructions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
