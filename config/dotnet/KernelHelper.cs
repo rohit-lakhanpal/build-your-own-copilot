@@ -3,14 +3,17 @@ using Microsoft.SemanticKernel.Reliability.Basic;
 using Microsoft.SemanticKernel.Plugins.Core;
 using Microsoft.SemanticKernel.Plugins.Web;
 using Microsoft.SemanticKernel.Plugins.Web.Bing;
-
+using Microsoft.SemanticKernel.Connectors.AI.OpenAI;
+using Microsoft.SemanticKernel.Connectors.Memory.AzureCognitiveSearch;
+using Microsoft.SemanticKernel.Memory;
+using Microsoft.SemanticKernel.Plugins.Memory;
 public static class KernelHelper
 {
     public static IKernel LoadKernel()
     {
         var configuration = new ConfigurationHelper().GetConfiguration();
 
-        var builder = new KernelBuilder();
+        var builder = new KernelBuilder();        
 
         var defaultCompletion = true;
 
@@ -39,7 +42,7 @@ public static class KernelHelper
                         openAiConfig.ApiKey,        // Azure OpenAI API key.                        
                         openAiConfig.ServiceId,     // A local identifier for the given AI service.                    
                         true                        // Whether the service should be the default for its type.
-                    );
+                    );                    
                 }
             }
 
@@ -68,12 +71,17 @@ public static class KernelHelper
             }
         }
 
+        builder.WithMemoryStorage(new AzureCognitiveSearchMemoryStore(
+            configuration.AzureSearchConfig.Endpoint,
+            configuration.AzureSearchConfig.AdminKey));
+
 
         builder.WithRetryBasic(new BasicRetryConfig
         {
             MaxRetryCount = 3,
             UseExponentialBackoff = true,
         });
+
 
         var kernel = builder.Build();
 
@@ -82,6 +90,9 @@ public static class KernelHelper
         {
             kernel.ImportFunctions(new WebSearchEnginePlugin(new BingConnector(configuration.BingSearchConfig.ApiKey)), "bing");
         }
+
+        kernel.ImportFunctions(new WebFileDownloadPlugin(), "web");
+        kernel.ImportFunctions(new SearchUrlPlugin(), "url");
 
         // Adding Text Plugin. See: https://github.com/microsoft/semantic-kernel/blob/main/dotnet/src/Plugins/Plugins.Core/TextPlugin.cs
         // SKContext.Variables["input"] = "  hello world  "
