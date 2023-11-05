@@ -12,7 +12,7 @@
             // Deployment ID for the model; only required when ApiType is "azure".
             "ModelId": "<deployment id for the model. Only required when type is azure>",
             // Specifies the type of model to use; either "completion" or "embeddings". Only required when ApiType is "azure".
-            "ModelType": "<must be completion or embeddings. Only required when type is azure>",
+            "ModelType": "<must be completions or embeddings. Only required when type is azure>",
             // An optional service ID.
             "ServiceId": ""
         }
