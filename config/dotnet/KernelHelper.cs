@@ -1,4 +1,8 @@
+using System;
+using System.IO;
+using System.Text.Json;
 using Microsoft.SemanticKernel;
+using Microsoft.SemanticKernel.Text;
 using Microsoft.SemanticKernel.Reliability.Basic;
 using Microsoft.SemanticKernel.Plugins.Core;
 using Microsoft.SemanticKernel.Plugins.Web;
@@ -105,6 +109,9 @@ public static class KernelHelper
         // {{text.lowercase $input}} => "hello world"
         kernel.ImportFunctions(new TextPlugin(), "text");
 
+        // Adding Conversation Plugin. See: https://github.com/microsoft/semantic-kernel/blob/main/dotnet/src/Plugins/Plugins.Core/ConversationSummaryPlugin.cs
+        kernel.ImportSkill(new ConversationSummaryPlugin(kernel), "conversation");
+
         // Adding Time Plugin. See: https://github.com/microsoft/semantic-kernel/blob/main/dotnet/src/Plugins/Plugins.Core/TimePlugin.cs
         // Examples:
         // {{time.date}}            => Sunday, 12 January, 2031
@@ -156,5 +163,61 @@ public static class KernelHelper
         kernel.ImportFunctions(new FileIOPlugin(), "file");
 
         return kernel;
+    }
+
+    public static async Task<List<string>> GetChunksAsync(string filePath)
+    {
+        const int maxTokensPerParagraph = 160;
+        const int maxTokensPerLine = 60;
+
+        // Check if file exists
+        if (!File.Exists(filePath))
+        {
+            throw new FileNotFoundException($"File not found: {filePath}");
+        }
+        
+        // Read file from local file system        
+        var streamReader = new StreamReader(filePath);
+        var text = await streamReader.ReadToEndAsync();
+
+        var lines = TextChunker.SplitPlainTextLines(text, maxTokensPerLine);
+        return TextChunker.SplitPlainTextParagraphs(lines, maxTokensPerParagraph);
+    }
+
+    public static async Task PrepareDatabaseAsync(IKernel kernel, string path, string db)
+    {
+        var chunks = await GetChunksAsync(path);
+        Console.WriteLine($"Chunks: {chunks.Count()}");
+
+
+        // Save chunks into memory
+        for (var i = 0; i < chunks.Count(); i++)
+        {
+            string chunk = chunks[i]; 
+
+            await kernel.Memory.SaveInformationAsync(
+                db,                         // collection name
+                chunk,                      // text
+                $"{db}-{i}",                // id
+                $"Dataset: {db} Chunk: {i}",// title or description
+                i.ToString()               // metadata
+            );
+
+            Console.WriteLine($"Chunk {i} of {chunks.Count} saved to memory collection {db}");
+        }
+    }
+
+    public static async Task<List<dynamic>> SearchDatabaseAsync(IKernel kernel, string db, string q, int limit = 1)
+    {
+        var list = new List<dynamic>();
+
+        await foreach (var item in kernel.Memory.SearchAsync(
+            collection: db, query: q, limit: limit))
+        {
+            list.Add(item.Metadata);
+            //Utils.Print($"{item.Metadata.Description} - {item.Metadata.Text}");
+        }
+
+        return list;
     }
 }
