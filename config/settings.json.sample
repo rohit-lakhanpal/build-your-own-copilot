@@ -1,0 +1,32 @@
+{
+    "OpenAiConfigs": [
+        {
+            // Specifies the type of API to use; either "openai" or "azure".
+            "ApiType": "<must be openai or azure>",
+            // Your API key for OpenAI or Azure.
+            "ApiKey": "<your OpenAI API key here>",
+            // Your Org Id for OpenAI; only required when ApiType is "openai".
+            "OrgId": "<your OpenAI OrgId here. Only required when type is openai>",
+            // The base URL for the Azure OpenAI API; only required when ApiType is "azure".
+            "BaseUrl": "<your Azure OpenAI API base here. Only required when type is azure>",
+            // Deployment ID for the model; only required when ApiType is "azure".
+            "ModelId": "<deployment id for the model. Only required when type is azure>",
+            // Specifies the type of model to use; either "completion" or "embeddings". Only required when ApiType is "azure".
+            "ModelType": "<must be completions or embeddings. Only required when type is azure>",
+            // An optional service ID.
+            "ServiceId": ""
+        }
+    ],
+    // Configuration settings for Azure Search Service.
+    "AzureSearchConfig": {
+        // The endpoint URL for the Azure Search Service.
+        "Endpoint": "",
+        // Your admin key for authenticating requests to the Azure Search Service.
+        "AdminKey": ""
+    },
+    // Configuration settings for Bing Search Service.
+    "BingSearchConfig": {
+        // Your API key for authenticating requests to the Bing Search Service.
+        "ApiKey": ""
+    }
+}

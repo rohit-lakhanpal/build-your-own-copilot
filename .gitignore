@@ -403,3 +403,4 @@ notebooks/dotnet/config/settings.json
 notebooks/python/*/OAI_CONFIG_LIST
 notebooks/python/*/coding
 
+config/settings.json
