@@ -189,41 +189,89 @@ public static class KernelHelper
         return TextChunker.SplitPlainTextParagraphs(lines, maxTokensPerParagraph);
     }
 
-    public static async Task PrepareDatabaseAsync(IKernel kernel, string path, string db)
+    public static async Task<List<string>> SaveFileAsync(IKernel kernel, string path, string db)
     {
         var chunks = await GetChunksAsync(path);
-        Console.WriteLine($"Chunks: {chunks.Count()}");
 
-
+        var ids = new List<string>();
+        
         // Save chunks into memory
         for (var i = 0; i < chunks.Count(); i++)
         {
             string chunk = chunks[i]; 
-
-            await kernel.Memory.SaveInformationAsync(
-                db,                         // collection name
-                chunk,                      // text
-                $"{db}-{i}",                // id
-                $"Dataset: {db} Chunk: {i}",// title or description
-                i.ToString()               // metadata
-            );
-
-            Console.WriteLine($"Chunk {i} of {chunks.Count} saved to memory collection {db}");
+            string chunkId = $"{db}-{i}";
+            ids.Add(await SaveChunkAsync(kernel, chunk, db, chunkId));   
+            Console.WriteLine($"- Saved chunk {i}.");         
         }
+
+        return ids;
     }
 
-    public static async Task<List<dynamic>> SearchDatabaseAsync(IKernel kernel, string db, string q, int limit = 1)
+    public static async Task<string> SaveChunkAsync(IKernel kernel, string text, string db, string id = "", string description = "", string metadata = "")
+    {
+        if(string.IsNullOrEmpty(id))
+        {
+            id = Guid.NewGuid().ToString();
+        }
+
+        if(string.IsNullOrEmpty(description))
+        {
+            description = $"d:{db} c:{id}";
+        }
+
+        if(string.IsNullOrEmpty(metadata))
+        {
+            metadata = id;
+        }
+
+        await kernel.Memory.SaveInformationAsync(
+            collection: db,                // Collection where to save the information.
+            text: text,                    // Information to save.
+            id: id,                        // Unique identifier.
+            description: description,      // Optional description.
+            additionalMetadata: metadata   // Optional string for saving custom metadata.
+        );
+
+        return id;
+    }
+
+    public static async Task<List<dynamic>> SearchDatabaseAsync(IKernel kernel, string db, string q, int limit = 1, double minRelevanceScore = 0.5)
     {
         var list = new List<dynamic>();
 
         await foreach (var item in kernel.Memory.SearchAsync(
-            collection: db, query: q, limit: limit))
+            collection: db,                         // Collection to search in.
+            query: q,                               // Query to search for.
+            limit: limit,                           // Maximum number of results to return.
+            minRelevanceScore: minRelevanceScore    // Minimum relevance score to return.
+            ))
         {
-            list.Add(item.Metadata);
-            //Utils.Print($"{item.Metadata.Description} - {item.Metadata.Text}");
+            list.Add(item.Metadata);            
         }
 
         return list;
+    }
+
+    public static async Task<List<string>> DeleteChunkAsync(IKernel kernel, string db, List<string> ids)
+    {
+        var list = new List<string>();
+
+        foreach(var i in ids)
+        {
+            list.Add(await DeleteChunkAsync(kernel, db, i));
+        }
+
+        return list;
+    }
+
+    public static async Task<string> DeleteChunkAsync(IKernel kernel, string db, string id)
+    {
+        await kernel.Memory.RemoveAsync(
+            db,     // Collection where to remove the information.
+            id      // Unique identifier.
+        );
+
+        return id;        
     }
 
     public static void Print(KernelResult r, PrintElement element = PrintElement.Paragraph)
@@ -240,8 +288,9 @@ public static class KernelHelper
     {
         // Important to escape any HTML tags in the text
         text = text.Replace("<", "&lt;").Replace(">", "&gt;");
-             
-        var style = "color:#a0d2eb;background-color:#8458B3;padding:10px;border-radius:5px;";
+
+        var baseStyle = "color:#a0d2eb;background-color:#8458B3;";      
+        var style = $"{baseStyle}padding:10px;border-radius:5px;";
         switch(element)
         {
             case PrintElement.Header:                      
@@ -253,7 +302,19 @@ public static class KernelHelper
             case PrintElement.Pre:                
                 display(div[style:$"{style}font-family: monospace;"](span[style:$"white-space:pre;color:black!important;background-color:#a0d2eb!important"](text)));
                 break;
+            case PrintElement.Muted:
+                display(pre(text));
+                break;
         }
+    }
+
+    public static void Print(string text)
+    {
+        Print(text, PrintElement.Paragraph);
+    }
+    public static void Info(string text)
+    {
+        Print(text, PrintElement.Muted);
     }
 }
 
@@ -261,5 +322,7 @@ public enum PrintElement
 {
     Header,
     Paragraph,
-    Pre
+    Pre,
+
+    Muted
 }
