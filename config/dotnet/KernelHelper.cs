@@ -226,18 +226,40 @@ public static class KernelHelper
         return list;
     }
 
-    public static void Print(KernelResult r)
+    public static void Print(KernelResult r, PrintElement element = PrintElement.Paragraph)
     {
-        Print(r.GetValue<string>());        
+        Print(r.GetValue<string>(), element);
     }
 
-    public static void Print(FunctionResult r)
+    public static void Print(FunctionResult r, PrintElement element = PrintElement.Paragraph)
     {
-         Print(r.GetValue<string>());
+        Print(r.GetValue<string>(), element);
     }
 
-    public static void Print(string text)
+    public static void Print(string text, PrintElement element)
     {
-        display(p[style:"color:#FF4500"](text));
+        // Important to escape any HTML tags in the text
+        text = text.Replace("<", "&lt;").Replace(">", "&gt;");
+             
+        var style = "color:#a0d2eb;background-color:#8458B3;padding:10px;border-radius:5px;";
+        switch(element)
+        {
+            case PrintElement.Header:                      
+                display(p[style:$"{style};font-weight:bolder;text-decoration:underline;"](text));
+                break;
+            case PrintElement.Paragraph:                
+                display(p[style:style](text));
+                break;
+            case PrintElement.Pre:                
+                display(div[style:$"{style}font-family: monospace;"](span[style:$"white-space:pre;color:black!important;background-color:#a0d2eb!important"](text)));
+                break;
+        }
     }
+}
+
+public enum PrintElement 
+{
+    Header,
+    Paragraph,
+    Pre
 }
