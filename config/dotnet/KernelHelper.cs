@@ -1,3 +1,4 @@
+using static Microsoft.DotNet.Interactive.Formatting.PocketViewTags;
 using System;
 using System.IO;
 using System.Text.Json;
@@ -11,17 +12,23 @@ using Microsoft.SemanticKernel.Connectors.AI.OpenAI;
 using Microsoft.SemanticKernel.Connectors.Memory.AzureCognitiveSearch;
 using Microsoft.SemanticKernel.Memory;
 using Microsoft.SemanticKernel.Plugins.Memory;
+using Microsoft.SemanticKernel.Orchestration;
 public static class KernelHelper
 {
     public static IKernel LoadKernel()
     {
+        var builder = new KernelBuilder();
         var configuration = new ConfigurationHelper().GetConfiguration();
+        ConfigureKernel(builder, configuration);
+        var kernel = builder.Build();
+        LoadPlugins(kernel, configuration);
+        return kernel;
+    }
 
-        var builder = new KernelBuilder();        
-
+    private static void ConfigureKernel(KernelBuilder builder, CopilotAppConfig configuration)
+    {
         var defaultCompletion = true;
 
-        // Loop through OpenAiConfigurations 
         foreach (var openAiConfig in configuration.OpenAiConfigs)
         {
             if (openAiConfig.ApiType == "azure")
@@ -46,7 +53,7 @@ public static class KernelHelper
                         openAiConfig.ApiKey,        // Azure OpenAI API key.                        
                         openAiConfig.ServiceId,     // A local identifier for the given AI service.                    
                         true                        // Whether the service should be the default for its type.
-                    );                    
+                    );
                 }
             }
 
@@ -82,13 +89,13 @@ public static class KernelHelper
 
         builder.WithRetryBasic(new BasicRetryConfig
         {
-            MaxRetryCount = 3,
+            MaxRetryCount = 2,
             UseExponentialBackoff = true,
         });
+    }
 
-
-        var kernel = builder.Build();
-
+    private static void LoadPlugins(IKernel kernel, CopilotAppConfig configuration)
+    {
         // Add the Bing search engine if the API key is provided.
         if(configuration.BingSearchConfig != null && !string.IsNullOrEmpty(configuration.BingSearchConfig.ApiKey))
         {
@@ -110,7 +117,7 @@ public static class KernelHelper
         kernel.ImportFunctions(new TextPlugin(), "text");
 
         // Adding Conversation Plugin. See: https://github.com/microsoft/semantic-kernel/blob/main/dotnet/src/Plugins/Plugins.Core/ConversationSummaryPlugin.cs
-        kernel.ImportSkill(new ConversationSummaryPlugin(kernel), "conversation");
+        kernel.ImportFunctions(new ConversationSummaryPlugin(kernel), "conversation");
 
         // Adding Time Plugin. See: https://github.com/microsoft/semantic-kernel/blob/main/dotnet/src/Plugins/Plugins.Core/TimePlugin.cs
         // Examples:
@@ -161,8 +168,6 @@ public static class KernelHelper
         // {{file.readAsync $path }} => "hello world"
         // {{file.writeAsync}}        
         kernel.ImportFunctions(new FileIOPlugin(), "file");
-
-        return kernel;
     }
 
     public static async Task<List<string>> GetChunksAsync(string filePath)
@@ -219,5 +224,20 @@ public static class KernelHelper
         }
 
         return list;
+    }
+
+    public static void Print(KernelResult r)
+    {
+        Print(r.GetValue<string>());        
+    }
+
+    public static void Print(FunctionResult r)
+    {
+         Print(r.GetValue<string>());
+    }
+
+    public static void Print(string text)
+    {
+        display(p[style:"color:#FF4500"](text));
     }
 }
