@@ -63,20 +63,12 @@ Click this button to deploy an `Azure Cognitive Search` service:
 - In the left pane, select **Keys** to access the admin and query keys.
 - Copy the **Admin key** or **Query key** as required for your application.
 - Setup Config:
-  - To set up configuration values using `settings.json`:
+  - To set up configuration values using `config/settings.json`:
     ```json
-    "AIConfiguration": {
-      "AzureSearch": {
+    "AzureSearchConfig": {
         "Endpoint": "<YOUR_ENDPOINT>",
         "AdminKey": "<YOUR_ADMIN_KEY>"
-      }
     }
-    ```
-    
-  - Or using .NET user secrets
-    ```cmd
-    dotnet user-secrets set "AIConfiguration:AzureSearch:Endpoint" "<YOUR_ENDPOINT>"
-    dotnet user-secrets set "AIConfiguration:AzureSearch:AdminKey" "<YOUR_ADMIN_KEY>"
     ```
 
 
@@ -149,40 +141,56 @@ Click this button to deploy an `Azure OpenAI` service:
 [![Deploy Azure OpenAI Service](https://aka.ms/deploytoazurebutton)](https://aka.ms/byoc-deploy-openai)
 
 #### Post-Deployment:
+
+After deployment, you will need to configure the service to use the desired model. To do so, follow these steps:
+
+- Create an **Azure OpenAI Service** resource in the Azure Portal. 
+- After deploying, open the **Azure OpenAI Service** resource within the Azure Portal.
+- Open the **Azure OpenAI Service Portal** at [https://oai.azure.com/portal](https://oai.azure.com/portal). 
+- Click on **Deployments** in the left sidebar.
+- Click on **Create New Deployment**.
+- Select a completion model and an embeddings model.
+  - For the completion model, select a model greater or equal to `gpt-35-turbo-16k`, ideally `gpt-4`.
+  - For the embeddings model, select `text-embedding-ada-002`.
+  - If possible, keep the deployment name the same as the model name. You will use this in `ModelId` below.
+- Now to get your **Keys and Endpoint** click on the cog icon in the top right corner of the portal.
+- Click on **Resource** on the opt nav bar.
+- Now the **Keys and Endpoint** should be available.
+
+
+
 - After deploying, open the **Azure OpenAI Service** resource within the Azure Portal.
 - Click on **Keys and Endpoint** on the left sidebar.
 - Retrieve the desired **API key** for integration with your application.
-- Setup Config:
-  - To set up configuration values using `settings.json`:
-    ```json
-    "AIConfiguration": {
-      "GenerativeAI": {
-        "DefaultProviders": {
-          "CompletionService": "Azure",
-          "ChatService": "Azure",
-          "EmbeddingService": "Azure"
-        },
-        "Azure": {
-          "Endpoint": "https://YOUR-SERVICE.azure.com/",
-          "CompletionModelName": "YOUR gpt-3.5-turbo-instruct DEPLOYMENT NAME",
-          "ChatModelName": "YOUR gpt-4 DEPLOYMENT NAME",
-          "EmbeddingModelName": "YOUR text-embedding-ada-002 DEPLOYMENT NAME"
-        }
-      }
-    }
-    ```
-    
-  - Or using .NET user secrets
-    ```cmd
-      dotnet user-secrets set "AIConfiguration:GenerativeAI:DefaultProviders:CompletionService" "Azure"
-      dotnet user-secrets set "AIConfiguration:GenerativeAI:DefaultProviders:ChatService" "Azure"
-      dotnet user-secrets set "AIConfiguration:GenerativeAI:DefaultProviders:EmbeddingService" "Azure"
-      dotnet user-secrets set "AIConfiguration:GenerativeAI:Azure:Endpoint" "https://YOUR-SERVICE.azure.com/"
-      dotnet user-secrets set "AIConfiguration:GenerativeAI:Azure:CompletionModelName" "YOUR gpt-3.5-turbo-instruct DEPLOYMENT NAME"
-      dotnet user-secrets set "AIConfiguration:GenerativeAI:Azure:ChatModelName" "YOUR gpt-4 DEPLOYMENT NAME"
-      dotnet user-secrets set "AIConfiguration:GenerativeAI:Azure:EmbeddingModelName" "YOUR text-embedding-ada-002 DEPLOYMENT NAME"
 
-    ```
+#### Configuration Validations:
+Ensure that the `OpenAiConfigs` section in `config/settings.json` is correctly configured, following these rules:
+
+1. The `OpenAiConfigs` section must exist and contain valid configurations.
+2. Ensure there are no duplicate `ServiceId`s within the `OpenAiConfigs` array.
+3. For each configuration within `OpenAiConfigs`:
+   - `ApiType` must be specified and its value must be either `openai` or `azure`.
+   - `ApiKey` must be specified.
+   - If `ApiType` is `openai`, `OrgId` must also be specified.
+   - If `ApiType` is `azure`, `BaseUrl`, `ModelId`, and `ModelType` must be specified.
+   - If `ApiType` is `azure`, `ModelType` must be either `completions` or `embeddings`.
+4. You must deploy at least one model greater or equal to GPT-3.5 Turbo, ideally GPT-4.
+5. You must deploy at least one embeddings model.
+
+#### Setup Config:
+- To set up configuration values using `config/settings.json`:
+  ```json
+  "OpenAiConfigs": [
+      {
+          "ApiType": "azure",
+          "ApiKey": "<your Azure OpenAI API key here>",
+          "BaseUrl": "<your Azure OpenAI API base here>",
+          "ModelId": "<deployment id for the model>",
+          "ModelType": "<must be completions or embeddings>",
+          "ServiceId": "<must be a unique string;e.g. az-gpt-4>"
+      }
+  ]
+  ```
 
 #### Learn More:
 - [Official Documentation](https://learn.microsoft.com/en-us/azure/cognitive-services/openai-service/)
@@ -222,18 +230,11 @@ Click this button to deploy a `Bing Search` service:
 - In the left pane, select **Keys and Endpoint**.
 - Here, you can access the primary and secondary keys for your Bing Search service. Copy either **Key1** or **Key2** as needed for your application.
 - Setup Config:
-  - To set up configuration values using `settings.json`:
+  - To set up configuration values using `config/settings.json`:
     ```json
-    "AIConfiguration": {
-      "BingSearch": {
+    "BingSearchConfig": {
         "ApiKey": "<YOUR_BING_API_KEY>"
-      }
     }
-    ```
-    
-  - Or using .NET user secrets
-    ```cmd
-    dotnet user-secrets set "AIConfiguration:BingSearch:ApiKey" "<YOUR_BING_API_KEY>"
     ```
 
 #### Learn More:
@@ -274,7 +275,7 @@ These resources should provide a comprehensive guide to installing VS Code and s
 #### 3.4. **ChatGPT Plugin Quickstart using Python and FastAPI**:
 - **[ChatGPT Plugin Quickstart using Python and FastAPI](https://github.com/Azure-Samples/openai-plugin-fastapi)**: This repository contains a sample ChatGPT Plugin using GitHub Codespaces, VS Code (locally), and Azure.
 
-For this example, plese follow the [Run Locally](https://github.com/Azure-Samples/openai-plugin-fastapi#run-locally) instructions.
+For this example, please follow the [Run Locally](https://github.com/Azure-Samples/openai-plugin-fastapi#run-locally) instructions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
